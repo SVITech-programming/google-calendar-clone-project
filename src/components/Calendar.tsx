@@ -13,7 +13,14 @@ import {
   startOfWeek,
   subMonths,
 } from "date-fns";
-import { Fragment, useId, useMemo, useRef, useState } from "react";
+import {
+  Fragment,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type SubmitEvent,
+} from "react";
 import { formatDate } from "../utils/formatDate";
 import { cc } from "../utils/cc";
 import { EVENT_COLORS, useEvents } from "../context/useEvent";
@@ -267,7 +274,7 @@ function EventFormModal({
   const endTimeRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
 
     const name = nameRef.current?.value;
